@@ -1,6 +1,6 @@
 # EX01 Developing a Simple Webserver
 
-# Date:22.03.2025
+# Date:25.03.2025
 # AIM:
 To develop a simple webserver to serve html pages and display the tabular column of multiple Companies and its Revenue
 
@@ -22,19 +22,17 @@ Testing the webserver.
 
 # PROGRAM:
 ```
-from http.server import HTTPServer, BaseHTTPRequestHandler
-content = """
+from http.server import HTTPServer,BaseHTTPRequestHandler
+content="""
 <html>
-<head>
 <title>Top Software Industries</title>
-</head>
 <body>
-<table border="2" cellspacing="10" cellpadding="6">
-<caption>Top 5 Revenue Generating Software Companies</caption>
+<table border="2" cellspacing="10"cellpadding="6">
+<caption>Top 5 Revenue Generating Software Companies </caption>
 <tr>
-<th>S.No</th>
-<th>Companies</th>
-<th>Revenue</th>
+<th>s.no</th>
+<th>companies</th>
+<th>revenue</th>
 </tr>
 <tr>
 <th>1</th>
@@ -43,7 +41,7 @@ content = """
 </tr>
 <tr>
 <th>2</th>
-<th>Oracle</th>
+<th>oracle</th>
 <th>29.6 billion</th>
 </tr>
 <tr>
@@ -58,26 +56,26 @@ content = """
 </tr>
 <tr>
 <th>5</th>
-<th>Symantec</th>
-<th>5.6 billi
+<th>symentec</th>
+<th>5.6 billion</th>
+</body>
+</html>
 """
 class myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print("request received")
         self.send_response(200)
-        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.send_header('content-type','text/html;charset=utf=8')
         self.end_headers()
         self.wfile.write(content.encode())
-server_address = ('',80)
+server_address = ('',8000)
 httpd = HTTPServer(server_address,myhandler)
-print("my webserver is running...")
+print("my server is running...")
 httpd.serve_forever()
 ```
 # OUTPUT:
-![image](https://github.com/user-attachments/assets/15117732-2f83-4913-bb81-41abc9c7adf1)
-![image](https://github.com/user-attachments/assets/7b293e8b-05a6-444f-bbb9-72addda67689)
-
-
+![alt text](<Screenshot 2025-03-25 204123.png>)
+![alt text](<Screenshot 2025-03-25 204113.png>)
 
 # RESULT:
 The program for implementing simple webserver is executed successfully.
